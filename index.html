@@ -16,19 +16,22 @@
                         :class="{danger: playerLife < 20}"
                         :style="{width: playerLife + '%'}"></div>
                 </div>
-                {{ playerLife }}%
+                <div>{{ playerLife }}%</div>    
             </div>
             <div class="score">
                 <h1>Monstro</h1>
                 <div class="life-bar">
                     <div class="life"
                         :class="{danger: monsterLife < 20}"
-                        :style="{width: monsterLife + '%'}">></div>
+                        :style="{width: monsterLife + '%'}"></div>
                 </div>
-                {{ monsterLife }}%
+                <div>{{ monsterLife }}%</div>
             </div>
         </div>
-        <div class="painel result"></div>
+        <div v-show="hasResult" class="painel result">
+            <div v-if="monsterLife == 0" class="win">Você ganhou! :D</div>
+            <div v-else class="lose">Você Perdeu! ;(</div>
+        </div>
         <div class="painel buttons"></div>
         <div class="painel logs"></div>
     </div>
